@@ -1,0 +1,29 @@
+<!--<ul>
+  <li *ngFor="let user of users;
+  let indice = index;
+  let pari = even;
+  let dispari= odd;
+  let primo = first;
+  let secondo = last">
+    <p [className]="'mio'">{{user.indirizzo?.via || 'Indirizzo non disponibile'}}</p>
+  </li>
+</ul>
+
+<h4>{{'auSHjsU' | customUppercase:'primo':'secondo'}}</h4>
+
+<button class="test-class" (click)="handleEvent($event)">Test</button>
+
+<input type="text" (input)="handleEvent($event)">
+-->
+
+<div class="card" [routerLink]="[user.id]" routerLinkActive="utente-selezionato" style="cursor: pointer;" *ngFor="let user of users">
+  <img [src]="getPic(user.id)" alt="Avatar" class="myImg">
+  <div style="margin-left: 5px">
+    <p><b>{{user.nome }} {{user.cognome}}</b></p>
+    <p>Età: {{user.eta}}</p>
+    <p>Indirizzo: {{user.indirizzo?.via || 'non specificato'}}</p>
+  </div>
+  <hr>
+</div>
+<h2 class="well" *ngIf="show">Nessun Utente recuperato dal backend !</h2>
+<router-outlet></router-outlet>

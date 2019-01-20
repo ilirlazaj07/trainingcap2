@@ -1,0 +1,38 @@
+<hr>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="nome">Nome</label>
+    <div class="col-sm-10">
+      <input type="text" [(ngModel)]="user.nome" class="form-control" id="nome" placeholder="Definire nome" name="nome">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="cognome">Cognome</label>
+    <div class="col-sm-10">
+      <input type="text" [(ngModel)]="user.cognome" class="form-control" id="cognome" placeholder="Definire Cognome"
+        name="cognome">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="eta">Età</label>
+    <div class="col-sm-10">
+      <input type="number" [(ngModel)]="user.eta" class="form-control" id="eta" placeholder="Definire età" name="eta">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="via">Residente in </label>
+    <div class="col-sm-10">
+      <input type="text" [(ngModel)]="user.indirizzo.via" class="form-control" id="via" placeholder="Definire indirizzo"
+        name="via">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div *ngIf="confrontaEgualianza()" class="alert alert-warning">
+        <strong>Modificare almeno uno dei campi per simulare il CanDeactivate</strong>
+      </div>
+
+      <button type="submit" (click)="goUp()" class="btn btn-success">indietro</button>
+    </div>
+  </div>
+</form>
