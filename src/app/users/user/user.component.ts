@@ -28,9 +28,13 @@ export class UserComponent implements OnInit, OnDestroy, ComponenteDisattivabile
     this.route.data.subscribe(
       (data: Data) => {
         this.user = data['user'];
-        if (!this.user.indirizzo)
-          this.user.indirizzo = { via: '' };
+        let indirizzo = { via: '' };
         this.userConfronto = { ...this.user };
+        this.userConfronto.indirizzo = { ...this.user.indirizzo };
+        if (!this.user.indirizzo) {
+          this.user.indirizzo = { ...indirizzo };
+          this.userConfronto.indirizzo = { ...indirizzo };
+        }
       }
     );
 
